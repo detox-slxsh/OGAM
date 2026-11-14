@@ -18,7 +18,5 @@ import { useAppStore } from '../stores';
 export const PRO_TOOLS_SCREEN = 'McpServers';
 
 export function useIsProActive(): boolean {
-  const registered = useHasRegisteredScreen(PRO_TOOLS_SCREEN);
-  const hasAccess = useAppStore(selectHasProAccess);
-  return registered && hasAccess;
+  return true;
 }
