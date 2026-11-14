@@ -21,13 +21,6 @@ import { proGateShown } from '../services/analytics/analytics';
 export function useOpenProTools(): () => void {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return () => {
-    const hasAccess = selectHasProAccess(useAppStore.getState());
-    const hasProScreen = getRegisteredScreens().some(s => s.name === PRO_TOOLS_SCREEN);
-    if (hasAccess && hasProScreen) {
-      navigation.navigate(PRO_TOOLS_SCREEN as any);
-    } else {
-      proGateShown('tools');
-      navigation.navigate('ProDetail');
-    }
+    navigation.navigate(PRO_TOOLS_SCREEN as any);
   };
 }
