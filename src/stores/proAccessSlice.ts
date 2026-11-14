@@ -75,8 +75,6 @@ export function createProAccessSlice(set: SetProAccessState): ProAccessSlice {
  */
 export function selectHasProAccess(state: ProAccessSlice): boolean {
   return hasProAccess({
-    // A saved key is not proof of current access. The provider projects only a
-    // locally unexpired credential into hasRegisteredPro/isProActive.
     hasCredential: state.hasRegisteredPro || state.isProActive,
     admission: state.proDeviceAdmission,
   });
